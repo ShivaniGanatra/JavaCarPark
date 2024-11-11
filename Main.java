@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-//        Car car = new Car();
-//        Motorbike motorbike = new Motorbike();
-//        Van van = new Van();
 
-//        van.getInformation();
+        CarPark carpark = new CarPark();
+        System.out.println(carpark.getAmountOfMotorbikeSpots());
+        System.out.println(carpark.getAmountOfSpots());
+        System.out.println(carpark);
     }
 }
