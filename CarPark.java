@@ -37,7 +37,13 @@
          this.amountOfCarSpots = amountOfCarSpots;
      }
 
-
+     public String getCurrentCapacity() {
+         return "This CarPark now has a capacity of " +
+                 (amountOfVanSpots + amountOfMotorbikeSpots + amountOfCarSpots) + " with " +
+                 amountOfCarSpots+ " car spots, " +
+                 amountOfVanSpots+ " van spots, " +
+                 amountOfMotorbikeSpots+ " motorbike spots, ";
+     }
 
      @Override
      public String toString() {
