@@ -9,6 +9,8 @@ public class Main {
         System.out.print("Hello. ");
         System.out.println(carpark);
 
+        Car car = new Car("pink","shiv",2020,"audi");
+        System.out.println(car);
         System.out.println(carpark.getTotalSpots());
 
         do {
