@@ -2,6 +2,16 @@
      private int amountOfCarSpots = 20;
      private int amountOfVanSpots = 6;
      private int amountOfMotorbikeSpots = 6;
+     private int totalSpots;
+
+     public int getTotalSpots() {
+          totalSpots = amountOfCarSpots + amountOfVanSpots + amountOfMotorbikeSpots;
+          return totalSpots;
+     }
+
+     public void setTotalSpots(int totalSpots) {
+         this.totalSpots = totalSpots;
+     }
 
      public int getAmountOfMotorbikeSpots() {
          return amountOfMotorbikeSpots;
@@ -27,14 +37,12 @@
          this.amountOfCarSpots = amountOfCarSpots;
      }
 
-     public int getAmountOfSpots(){
-         return this.amountOfCarSpots + this.amountOfMotorbikeSpots + this.amountOfVanSpots;
-     }
+
 
      @Override
      public String toString() {
-         return "This CarPark has " +
-                 (amountOfVanSpots + amountOfMotorbikeSpots + amountOfCarSpots) + " spots in total " +
+         return "This CarPark has a capacity of " +
+                 (amountOfVanSpots + amountOfMotorbikeSpots + amountOfCarSpots) + " with " +
                   amountOfCarSpots+ " car spots, " +
                  amountOfVanSpots+ " van spots, " +
                  amountOfMotorbikeSpots+ " motorbike spots, ";
