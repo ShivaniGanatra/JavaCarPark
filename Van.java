@@ -9,4 +9,11 @@ public class Van extends Vehicle{
     public void getInformation() {
         System.out.println("This is a van");
     }
+
+    @Override
+    public String toString() {
+        return "Van : " + this.getOwner() + "'s " + this.getColour() + ", " +
+                this.getYearOfIssue() + ", " + this.getModel();
+
+    }
 }

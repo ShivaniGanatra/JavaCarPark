@@ -9,4 +9,10 @@ public class Motorbike extends Vehicle{
     public void getInformation() {
         System.out.println("This is a Motorbike");
     }
+    @Override
+    public String toString() {
+        return "Motorbike : " + this.getOwner() + "'s " + this.getColour() + ", " +
+                this.getYearOfIssue() + ", " + this.getModel();
+
+    }
 }

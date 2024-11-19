@@ -1,8 +1,21 @@
- public class CarPark {
+import java.util.ArrayList;
+import java.util.List;
+
+public class CarPark {
      private int amountOfCarSpots = 18;
      private int amountOfVanSpots = 6;
      private int amountOfMotorbikeSpots = 6;
      private int totalSpots;
+    private List<Vehicle> vehicleList = new ArrayList<>();
+
+    public List getVehicleList() {
+        return vehicleList;
+    }
+
+    public List setVehicleList(Vehicle vehicle) {
+        vehicleList.add(vehicle);
+        return vehicleList;
+    }
 
      public int getTotalSpots() {
           totalSpots = amountOfCarSpots + amountOfVanSpots + amountOfMotorbikeSpots;
