@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -6,10 +8,19 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         CarPark carpark = new CarPark();
 
+        Motorbike annasMotorbike = new Motorbike("lime","anna",2012,"mclaren");
+
+
         System.out.print("Hello. ");
         System.out.println(carpark);
 
         Car shivsCar = new Car("pink","shiv",2020,"audi");
+        List<Vehicle> VehiclesList = new ArrayList<>();
+        VehiclesList.add(shivsCar);
+        VehiclesList.add(annasMotorbike);
+
+        System.out.println("vehicle list"+VehiclesList);
+
         System.out.println(shivsCar);
 
         System.out.println(carpark.getTotalSpots());
