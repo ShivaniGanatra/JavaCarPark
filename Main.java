@@ -39,6 +39,11 @@ public class Main {
                     if (carpark.getAmountOfCarSpots()==0) {
                         System.out.println("All the car spots are now full");
                     }
+                } else if (carpark.getAmountOfVanSpots() >0) {
+                    carpark.setAmountOfVanSpots(1);
+
+                } else if(carpark.getAmountOfVanSpots()==0){
+                    System.out.println("You cant park any more cars");
                 }
 
                 System.out.println(carpark.getCurrentCapacity());
@@ -53,15 +58,15 @@ public class Main {
                         System.out.println("All the motorbike spots are now full");
                     }
                 } else if(carpark.getAmountOfCarSpots()>0) {
-                    System.out.println("The motorbike spots are full but you can park your motorbike in a car spot");
+                    System.out.println("The motorbike spots are full");
                     carpark.setAmountOfCarSpots(1);
                     if (carpark.getAmountOfCarSpots()==0) {
                         System.out.println("All the car spots are now full");
                     }
                 } else {
-                    System.out.println("The motorbike and car spots are full but you can park your motorbike in a van spot");
+                    System.out.println("The motorbike and car spots are full");
                     carpark.setAmountOfVanSpots(1);
-                    if (carpark.getAmountOfCarSpots()==0) {
+                    if (carpark.getAmountOfVanSpots()==0) {
                         System.out.println("All the car,van and motorbike spots are now full");
                     }
                 }
@@ -72,6 +77,7 @@ public class Main {
 
         } while(carpark.getTotalSpots()>0);
         System.out.println("The car park is now full");
+        System.out.println("in the car park there are ...");
 
     }
 }

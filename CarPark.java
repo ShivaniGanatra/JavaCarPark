@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarPark {
-     private int amountOfCarSpots = 18;
+     private int amountOfCarSpots = 6;
      private int amountOfVanSpots = 6;
      private int amountOfMotorbikeSpots = 6;
      private int totalSpots;
