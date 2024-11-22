@@ -19,41 +19,59 @@ public class Main {
         VehiclesList.add(shivsCar);
         VehiclesList.add(annasMotorbike);
 
-        System.out.println("vehicle list"+VehiclesList);
-
-        System.out.println(shivsCar);
-
-        System.out.println(carpark.getTotalSpots());
-
-        System.out.println(carpark.getVehicleList());
-        System.out.println(carpark.setVehicleList(shivsCar));
-        System.out.println(carpark.setVehicleList(shivsCar));
-
         do {
             System.out.println("Would you like to tell me what type of vehicle you'd like to park?" +
                     "i.e a motorbike, car or van");
             String input = scanner.next();
             if(Objects.equals(input, "van") || Objects.equals(input, "Van")
-                    || Objects.equals(input, "VAN")) {
+                    || Objects.equals(input, "VAN") || Objects.equals(input, "V")) {
                 System.out.println("you have entered a van ");
-                carpark.setAmountOfVanSpots(0);
+                carpark.setAmountOfVanSpots(1);
                 System.out.println(carpark.getCurrentCapacity());
+                System.out.println("----");
 
             } else if (Objects.equals(input, "car") | Objects.equals(input, "Can")
-                    || Objects.equals(input, "CAR")) {
-                System.out.println("you have entered a van ");
-                carpark.setAmountOfCarSpots(0);
+                    || Objects.equals(input, "CAR") || Objects.equals(input, "C")) {
+                System.out.println("you have entered a car ");
+
+                if (carpark.getAmountOfCarSpots() > 0) {
+                    carpark.setAmountOfCarSpots(1);
+                    if (carpark.getAmountOfCarSpots()==0) {
+                        System.out.println("All the car spots are now full");
+                    }
+                }
+
                 System.out.println(carpark.getCurrentCapacity());
+                System.out.println("----");
 
             } else if (Objects.equals(input, "motorbike") | Objects.equals(input, "Motorbike")
-                    || Objects.equals(input, "MOTORBIKE")) {
+                    || Objects.equals(input, "MOTORBIKE") || Objects.equals(input, "M")) {
                 System.out.println("You have entered a motorbike ");
-                carpark.setAmountOfMotorbikeSpots(0);
+                if (carpark.getAmountOfMotorbikeSpots()>0) {
+                    carpark.setAmountOfMotorbikeSpots(1);
+                    if (carpark.getAmountOfMotorbikeSpots()==0) {
+                        System.out.println("All the motorbike spots are now full");
+                    }
+                } else if(carpark.getAmountOfCarSpots()>0) {
+                    System.out.println("The motorbike spots are full but you can park your motorbike in a car spot");
+                    carpark.setAmountOfCarSpots(1);
+                    if (carpark.getAmountOfCarSpots()==0) {
+                        System.out.println("All the car spots are now full");
+                    }
+                } else {
+                    System.out.println("The motorbike and car spots are full but you can park your motorbike in a van spot");
+                    carpark.setAmountOfVanSpots(1);
+                    if (carpark.getAmountOfCarSpots()==0) {
+                        System.out.println("All the car,van and motorbike spots are now full");
+                    }
+                }
+
                 System.out.println(carpark.getCurrentCapacity());
+                System.out.println("----");
             } else System.out.println("You haven't entered an appropriate vehicle");
+
         } while(carpark.getTotalSpots()>0);
         System.out.println("The car park is now full");
-
 
     }
 }

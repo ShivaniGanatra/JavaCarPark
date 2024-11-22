@@ -31,7 +31,10 @@ public class CarPark {
      }
 
      public void setAmountOfMotorbikeSpots(int amountOfMotorbikeSpots) {
-         this.amountOfMotorbikeSpots = amountOfMotorbikeSpots;
+        if(this.amountOfMotorbikeSpots>0){
+            this.amountOfMotorbikeSpots = this.amountOfMotorbikeSpots - amountOfMotorbikeSpots;
+        }
+
      }
 
      public int getAmountOfVanSpots() {
@@ -39,7 +42,9 @@ public class CarPark {
      }
 
      public void setAmountOfVanSpots(int amountOfVanSpots) {
-         this.amountOfVanSpots = amountOfVanSpots;
+        if (this.amountOfVanSpots>0) {
+            this.amountOfVanSpots = this.amountOfVanSpots-amountOfVanSpots;
+        }
      }
 
      public int getAmountOfCarSpots() {
@@ -47,7 +52,10 @@ public class CarPark {
      }
 
      public void setAmountOfCarSpots(int amountOfCarSpots) {
-         this.amountOfCarSpots = amountOfCarSpots;
+        if(this.amountOfCarSpots>0){
+            this.amountOfCarSpots = this.amountOfCarSpots-amountOfCarSpots;
+        }
+
      }
 
      public String getCurrentCapacity() {
