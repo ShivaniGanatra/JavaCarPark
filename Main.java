@@ -3,10 +3,17 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+
 public class Main {
+    static int motorbikeNumber;
+    static int vanNumber;
+    static int carNumber;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CarPark carpark = new CarPark();
+
+
 
         Motorbike annasMotorbike = new Motorbike("lime","anna",2012,"mclaren");
 
@@ -26,7 +33,16 @@ public class Main {
             if(Objects.equals(input, "van") || Objects.equals(input, "Van")
                     || Objects.equals(input, "VAN") || Objects.equals(input, "V")) {
                 System.out.println("you have entered a van ");
-                carpark.setAmountOfVanSpots(1);
+                if (carpark.getAmountOfVanSpots() > 0) {
+                    carpark.setAmountOfVanSpots(1);
+                    vanNumber+=1;
+                } else if (carpark.getAmountOfCarSpots() >=3) {
+                    System.out.println("There are no van spots but you can park in 3 car spots");
+                    carpark.setAmountOfCarSpots(3);
+                    vanNumber+=1;
+                } else {
+                    System.out.println("There are no spaces to park the van");
+                }
                 System.out.println(carpark.getCurrentCapacity());
                 System.out.println("----");
 
@@ -36,14 +52,16 @@ public class Main {
 
                 if (carpark.getAmountOfCarSpots() > 0) {
                     carpark.setAmountOfCarSpots(1);
+                    carNumber +=1;
                     if (carpark.getAmountOfCarSpots()==0) {
                         System.out.println("All the car spots are now full");
                     }
                 } else if (carpark.getAmountOfVanSpots() >0) {
                     carpark.setAmountOfVanSpots(1);
+                    carNumber +=1;
 
                 } else if(carpark.getAmountOfVanSpots()==0){
-                    System.out.println("You cant park any more cars");
+                    System.out.println("You cant park any more cars there arent any car or van spots left");
                 }
 
                 System.out.println(carpark.getCurrentCapacity());
@@ -54,18 +72,21 @@ public class Main {
                 System.out.println("You have entered a motorbike ");
                 if (carpark.getAmountOfMotorbikeSpots()>0) {
                     carpark.setAmountOfMotorbikeSpots(1);
+                    motorbikeNumber += 1;
                     if (carpark.getAmountOfMotorbikeSpots()==0) {
                         System.out.println("All the motorbike spots are now full");
                     }
                 } else if(carpark.getAmountOfCarSpots()>0) {
-                    System.out.println("The motorbike spots are full");
+                    System.out.println("The motorbike spots are full but you can park in a car spot");
                     carpark.setAmountOfCarSpots(1);
+                    motorbikeNumber += 1;
                     if (carpark.getAmountOfCarSpots()==0) {
                         System.out.println("All the car spots are now full");
                     }
                 } else {
                     System.out.println("The motorbike and car spots are full");
                     carpark.setAmountOfVanSpots(1);
+                    motorbikeNumber += 1;
                     if (carpark.getAmountOfVanSpots()==0) {
                         System.out.println("All the car,van and motorbike spots are now full");
                     }
@@ -77,7 +98,8 @@ public class Main {
 
         } while(carpark.getTotalSpots()>0);
         System.out.println("The car park is now full");
-        System.out.println("in the car park there are ...");
+        System.out.println("in the car park there are " + motorbikeNumber + " motorbikes " +
+                vanNumber+ " vans " + carNumber + " cars" );
 
     }
 }
