@@ -23,10 +23,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         CarPark carpark = new CarPark();
 
-
-
         Motorbike annasMotorbike = new Motorbike("lime","anna",2012,"mclaren");
-
 
         System.out.print("Hello. ");
         System.out.println(carpark);
@@ -114,9 +111,10 @@ public class Main {
                 System.out.println(carpark.getCurrentCapacity());
                 System.out.println("----");
             } else if (Objects.equals(input,"MS")) {
-                System.out.println("Motorbikes take up : " + motorbikeInMotorbikeSpots + " motorbike spots, " +
+                System.out.println("Motorbikes take up " + motorbikeInMotorbikeSpots + " motorbike spots, " +
                         motorbikeInCarSpots + " car spots, " + motorbikeInVanSpots + " van spots so " +
                         (motorbikeInVanSpots+motorbikeInCarSpots+motorbikeInMotorbikeSpots) + " spots in total");
+
             } else if (Objects.equals(input,"VS")) {
                 System.out.println("There are  " + vanNumber + " vans that take up  "
                         + (vanInVanSpots + 3 * vanInCarSpots) + " spots. "
@@ -124,7 +122,7 @@ public class Main {
                         + vanInCarSpots + " vans in " + 3 * vanInCarSpots +" CAR spots");
 
             } else if (Objects.equals(input,"CS")) {
-                System.out.println("Cars take up : " + carInCarSpots + " car spots, " +
+                System.out.println("Cars take up  " + carInCarSpots + " car spots, " +
                         carInVanSpots + " van spots so " + (carInCarSpots + carInVanSpots) + " in total");
             }else System.out.println("You haven't entered an appropriate vehicle");
 
